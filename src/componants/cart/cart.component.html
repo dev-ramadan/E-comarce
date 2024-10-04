@@ -1,0 +1,96 @@
+<div class="card">
+  <div class="row">
+    <div class="col-md-8 cart w-70">
+      <div class="title">
+        <div class="row">
+          <div class="col">
+            <h4><b>Shopping Cart</b></h4>
+          </div>
+          <div class="col align-self-center text-right text-muted">items</div>
+        </div>
+      </div>
+      <div
+        class="row border-top border-bottom"
+        *ngFor="let item of cartPtodact; let i = index"
+      >
+        <div class="row main align-items-cente">
+          <div class="col-2">
+            <img class="img-fluid" src="{{ item.item.img }}" />
+          </div>
+          <div class="col">
+            <div class="row text-muted">{{ item.item.brand }}</div>
+            <div class="row">{{ item.item.desc }}</div>
+          </div>
+          <div
+            class="col"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <div>
+              <button style="border: none" (click)="minsAmount(i)">-</button>
+              <input
+                min="0"
+                (change)="upLocalStorge()"
+                style="
+                  width: 40px;
+                  border: none;
+                  cursor: pointer;
+                  outline: none;
+                  text-align: center;
+                  margin: 0 10px;
+                "
+                [(ngModel)]="item.quantity"
+                class="border text-center"
+              />
+              <button style="border: none" (click)="addAmount(i)">+</button>
+            </div>
+            <div>TOTAL : {{ item.item.price * item.quantity }}</div>
+            <button class="h" (click)="deletProduct(i)">DELET</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="back-to-shop">
+        <a routerLink="/home">&leftarrow;</a
+        ><span class="text-muted">Back to shop</span>
+      </div>
+    </div>
+    <div class="col-md-4 summary">
+      <div>
+        <h5><b>Summary</b></h5>
+      </div>
+      <hr />
+      <div
+        class="row"
+        style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0"
+      >
+        <div class="col">item :</div>
+        <div class="col text-left">
+          <h4>{{cartPtodact.length}}</h4>
+        </div>
+      </div>
+      <div
+        class="row"
+        style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0"
+      >
+        <div class="col">TOTAL PRICE</div>
+        <div class="col text-right">
+          <h4>${{ total }}</h4>
+        </div>
+      </div>
+      <button class="btn" (click)="chackOut()">CHECKOUT</button>
+    </div>
+  </div>
+</div>
+@if(chack){
+    <div class="alert alert-success text-center " role="alert">your order succsessfuly send</div>
+}
+
+
+<!-- <div *ngFor="let item of cartPtodact">
+    <img src="{{item.item.img}}" alt="">
+</div> -->

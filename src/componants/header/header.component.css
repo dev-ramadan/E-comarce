@@ -1,0 +1,29 @@
+.counter{
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:-2px;
+    font-size: 15px;
+    right: -15px;
+}
+.counter2{
+    background-color: red;
+    font-size: 15px;
+    color: white;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:-2px;
+    left:3px;
+}

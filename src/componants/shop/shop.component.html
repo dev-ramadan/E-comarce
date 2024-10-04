@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="app">
+<section id="page-heade">
+    <swiper-container class="mySwiper" effect="cards" grab-cursor="true"  autoplay-delay="2500" >
+    <swiper-slide *ngFor="let item of productShop">
+        <img src="{{item.img}}" alt="" >
+    </swiper-slide>
+  </swiper-container>
+</section>
+</div>
+<section id="product1" class="section-p1">
+    <div class="pro-container">
+        <div class="pro" *ngFor="let item of productShop">
+         <app-allprodact [myData]="item" (myProdact)="addTocard($event)">
+         </app-allprodact>
+        </div>
+        </div>
+</section>
+ <app-fotter></app-fotter>

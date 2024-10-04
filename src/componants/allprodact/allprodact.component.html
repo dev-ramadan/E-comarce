@@ -1,0 +1,24 @@
+<div class="pairant">
+    <div routerLink="/detils/{{myData.id}}">
+<img src="{{myData.img}}" alt="" id="MainImg" class="wow pulse" data-wow-duration="1s" data-wow-offset="250" >
+<div class="des">
+    <span>{{myData.brand}}</span>
+    <h5>{{myData.desc}}</h5>
+    <div class="star">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <h4>${{myData.price}}</h4>
+</div>
+</div>
+<button class="cart" *ngIf="!addButton" (click)="addButton = true">
+    <i class="fas fa-shopping-cart"></i>
+</button>
+<div class="d-flex w50" *ngIf="addButton">
+    <input type="number" class="form-control" [(ngModel)] ="quantity">
+    <button class="btn btn-primary" (click)="add()" (click)="alert()">add</button>
+</div>
+</div>

@@ -1,0 +1,44 @@
+<app-header></app-header>
+<section id="prodetails" class="section-p1">
+  <div class="single-pro-image">
+    <section id="product1" class="section-p1">
+      <div class="pro-container">
+          <div class="pro" *ngFor="let item of data">
+           <app-allprodact [myData]="item" (myProdact)="addTocard($event)">
+           </app-allprodact>
+          </div>
+          </div>
+    </section>
+  </div>
+  <div class="single-pro-details"*ngFor="let  item of data">
+
+      <h6>Home / T-Shirt</h6>
+      <h4>Men's Fashion T Shirt</h4>
+      <h2>${{item.price}}</h2>
+      <select>
+          <option>Select Size</option>
+          <option>XL</option>
+          <option>XXL</option>
+          <option>Small</option>
+          <option>Large </option>
+      </select>
+      <input type="number" value="1"> 
+      <h4>Product Details</h4>
+      <span>The Gildan Ultra Cotton T-shirt is made from a substantial 6.0 oz. per
+          sq. yd. fabric constructed from 100% cotton, this classic fit preshrunk jersey
+          knit provides unmatched comfort with each wear. Featuring a taped neck and
+          shoulder, and a seamless double-needle collar, and available in a range of
+          colors, it offers it all in the ultimate head-turning package .</span>
+  </div>
+</section>
+<section id="product1" class="section-p1">
+  <h2>Featured Products</h2>
+  <p>Summer Collection New Modern Design</p>
+  <div class="pro-container">
+      <div class="pro" *ngFor="let item of recomend">
+        <app-allprodact [myData]="item" (myProdact)="addTocard($event)">
+        </app-allprodact>
+        </div>
+        </div>
+        </section>
+    <app-fotter></app-fotter>
