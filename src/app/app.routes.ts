@@ -11,7 +11,7 @@ import { ProdcutDetilsComponent } from '../componants/prodcut-detils/prodcut-det
 import { CartComponent } from '../componants/cart/cart.component';
 
 export const routes: Routes = [
-    {path : '' , redirectTo : 'login' , pathMatch : 'full'},
+    {path : '' , redirectTo : 'home' , pathMatch : 'full'},
     {path : 'home' , component : HomeComponent},
     {path : 'about' , component : AboutComponent},
     {path : 'contact' , component : ContactComponent},
