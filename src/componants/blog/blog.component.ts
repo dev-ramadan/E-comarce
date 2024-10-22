@@ -1,4 +1,3 @@
-import { NgwWowService } from 'ngx-wow';
 import { Component } from '@angular/core';
 import { FotterComponent } from "../fotter/fotter.component";
 import { HeaderComponent } from "../header/header.component";
@@ -11,7 +10,5 @@ import { HeaderComponent } from "../header/header.component";
   styleUrl: './blog.component.css'
 })
 export class BlogComponent {
-  constructor (private wowService : NgwWowService){
-    this.wowService.init()
-  }
+
 }

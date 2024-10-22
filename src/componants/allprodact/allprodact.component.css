@@ -1,0 +1,17 @@
+.add {
+  width: 50px;
+  background-color: #088178;
+  color: #fff;
+}
+.add:hover,
+.add:focus,
+.add:active {
+  background-color: #088178;
+  color: #fff;
+}
+.add-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}

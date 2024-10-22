@@ -1,0 +1,481 @@
+<header>
+  <!-- Jumbotron -->
+  <div class="p-3 text-center bg-white border-bottom">
+    <div class="container">
+      <div class="d-flex justify-content-between">
+        <!-- Left elements -->
+        <div class="">
+          <a href="https://mdbootstrap.com/" target="_blank" class="">
+            <img src="img/dragon.png" height="35" />
+          </a>
+        </div>
+        <!-- Left elements -->
+
+        <!-- right elements -->
+        <div class="">
+          <a
+            routerLink="/signup"
+            class="me-1 border rounded py-1 px-3 nav-link"
+          >
+            <i class="fas fa-user-alt me-2"></i>Sign in
+          </a>
+        </div>
+        <!-- right elements -->
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+
+  <!-- Heading -->
+  <div style="background-color: #088178; color: black">
+    <div class="container py-4">
+      <!-- Breadcrumb -->
+      <nav class="d-flex">
+        <h6 class="mb-0">
+          <a class="text-white-50" routerLink="/home">Home</a>
+          <span class="text-white-50 mx-2"> > </span>
+          <a class="text-white-50" routerLink="/cart">2. Shopping cart</a>
+          <span class="text-white-50 mx-2"> > </span>
+          <a class="text-white" style="cursor: pointer"><u>3. Order info</u></a>
+        </h6>
+      </nav>
+      <!-- Breadcrumb -->
+    </div>
+  </div>
+  <!-- Heading -->
+</header>
+
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 mb-4">
+        <div class="card mb-4 border shadow-0">
+          <div class="p-4 d-flex justify-content-between">
+            <div class="">
+              <h5>Have an account?</h5>
+              <p class="mb-0 text-wrap">
+                Please enter your email address and password to log in.
+              </p>
+            </div>
+            <div
+              class="d-flex align-items-center justify-content-center flex-column flex-md-row"
+            >
+              <a
+                href="#"
+                class="btn me-0 me-md-2 mb-2 mb-md-0 w-100"
+                style="outline: 1px solid #088178"
+                routerLink="/signup"
+                >Register</a
+              >
+              <a
+                href="#"
+                class="btn shadow-0 text-nowrap w-100"
+                style="background-color: #088178"
+                routerLink="/signup"
+                >Sign in</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout -->
+        <div class="card shadow-0 border">
+          <div class="p-4">
+            <form [formGroup]="chackOut">
+              <h5 class="card-title mb-3">Guest checkout</h5>
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <p class="mb-0">First name</p>
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="typeText"
+                      placeholder="Type here"
+                      class="form-control"
+                      formControlName="fristName"
+                    />
+                    <div
+                      *ngIf="
+                        chackOut.invalid &&
+                        (isFormSubminted ||
+                          chackOut.get('fristName')?.dirty ||
+                          chackOut.get('fristName')?.touched)
+                      "
+                    >
+                      <small class="text-danger">Frist Name is required</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <p class="mb-0">Last name</p>
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="typeText"
+                      placeholder="Type here"
+                      class="form-control"
+                      formControlName="lastName"
+                    />
+                    <div
+                      *ngIf="
+                        chackOut.invalid &&
+                        (isFormSubminted ||
+                          chackOut.get('lastName')?.dirty ||
+                          chackOut.get('lastName')?.touched)
+                      "
+                    >
+                      <small class="text-danger">Last Name is required</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 mb-3">
+                  <p class="mb-0">Phone</p>
+                  <div class="form-outline">
+                    <input
+                      type="tel"
+                      id="typePhone"
+                      value="+48 "
+                      class="form-control"
+                      formControlName="phone"
+                    />
+                    <div
+                      *ngIf="
+                        chackOut.invalid &&
+                        (isFormSubminted ||
+                          chackOut.get('phone')?.dirty ||
+                          chackOut.get('phone')?.touched)
+                      "
+                    >
+                      <small class="text-danger">Phone is required</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 mb-3">
+                  <p class="mb-0">Email</p>
+                  <div class="form-outline">
+                    <input
+                      type="email"
+                      id="typeEmail"
+                      placeholder="example@gmail.com"
+                      class="form-control"
+                      formControlName="email"
+                    />
+                    <div
+                      *ngIf="
+                        chackOut.invalid &&
+                        (isFormSubminted ||
+                          chackOut.get('email')?.dirty ||
+                          chackOut.get('email')?.touched)
+                      "
+                    >
+                      <small class="text-danger">Email is required</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault"
+                  >Keep me up to date on news</label
+                >
+              </div>
+              <hr class="my-4" />
+
+              <h5 class="card-title mb-3">Shipping info</h5>
+
+              <div class="row mb-3">
+                <div class="col-lg-4 mb-3">
+                  <!-- Default checked radio -->
+                  <div class="form-check h-100 border rounded-3">
+                    <div class="p-3">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault1"
+                        checked
+                      />
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Express delivery <br />
+                        <small class="text-muted">3-4 days via Fedex </small>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                  <!-- Default radio -->
+                  <div class="form-check h-100 border rounded-3">
+                    <div class="p-3">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault2"
+                      />
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Post office <br />
+                        <small class="text-muted">20-30 days via post </small>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                  <!-- Default radio -->
+                  <div class="form-check h-100 border rounded-3">
+                    <div class="p-3">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault3"
+                      />
+                      <label class="form-check-label" for="flexRadioDefault3">
+                        Self pick-up <br />
+                        <small class="text-muted">Come to our shop </small>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-8 mb-3">
+                  <p class="mb-0">Address</p>
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="typeText"
+                      placeholder="Type here"
+                      class="form-control"
+                      formControlName="address"
+                    />
+                    <div
+                      *ngIf="
+                        chackOut.invalid &&
+                        (isFormSubminted ||
+                          chackOut.get('address')?.dirty ||
+                          chackOut.get('address')?.touched)
+                      "
+                    >
+                      <small class="text-danger">Address is required</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-4 mb-3">
+                  <p class="mb-0">City</p>
+                  <select class="form-select">
+                    <option value="1">New York</option>
+                    <option value="2">Moscow</option>
+                    <option value="3">Samarqand</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-4 mb-3">
+                  <p class="mb-0">House</p>
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="typeText"
+                      placeholder="Type here"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-sm-4 col-6 mb-3">
+                  <p class="mb-0">Postal code</p>
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="typeText"
+                      class="form-control"
+                      formControlName="postalCode"
+                    />
+                    <div
+                      *ngIf="
+                        chackOut.invalid &&
+                        (isFormSubminted ||
+                          chackOut.get('postalCode')?.dirty ||
+                          chackOut.get('postalCode')?.touched)
+                      "
+                    >
+                      <small class="text-danger">Postal Code is required</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-4 col-6 mb-3">
+                  <p class="mb-0">Zip</p>
+                  <div class="form-outline">
+                    <input
+                      type="text"
+                      id="typeText"
+                      class="form-control"
+                      formControlName="zip"
+                    />
+                    <div
+                      *ngIf="
+                        chackOut.invalid &&
+                        (isFormSubminted ||
+                          chackOut.get('zip')?.dirty ||
+                          chackOut.get('zip')?.touched)
+                      "
+                    >
+                      <small class="text-danger">Zip is required</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check mb-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault1"
+                />
+                <label class="form-check-label" for="flexCheckDefault1"
+                  >Save this address</label
+                >
+              </div>
+
+              <div class="mb-3">
+                <p class="mb-0">Message to seller</p>
+                <div class="form-outline">
+                  <textarea
+                    class="form-control"
+                    id="textAreaExample1"
+                    rows="2"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="float-end">
+                <button class="btn btn-light border" routerLink="/cart">
+                  Cancel
+                </button>
+                <button
+                  *ngIf="chackOut.invalid"
+                  class="btn btn-success shadow-0 border"
+                  type="submit"
+                  (click)="onSubmint()"
+                >
+                  Continue
+                </button>
+                <button
+                  *ngIf="chackOut.valid"
+                  class="btn btn-success shadow-0 border"
+                  type="submit"
+                  routerLink="/sucsses"
+                >
+                  Continue
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Checkout -->
+      </div>
+      <div
+        class="col-xl-4 col-lg-4 d-flex justify-content-center"
+        style="margin-bottom: 170px; height: auto"
+      >
+        <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px">
+          <h4 class="mb-3">Summary</h4>
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Total price:</p>
+            <p class="mb-2">${{ total }}</p>
+          </div>
+          <hr />
+
+          <div class="input-group mt-3 mb-4">
+            <input
+              type="text"
+              class="form-control border"
+              name=""
+              placeholder="Promo code"
+              id="copon"
+            />
+            <button
+              class="btn btn-light border"
+              style="color: #088178"
+              (click)="copon()"
+            >
+              Apply
+            </button>
+          </div>
+          <p class="p text-center text-danger" style="display: none">
+            please enter a copon
+          </p>
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Total price:</p>
+            <p class="mb-2 fw-bold" *ngIf="copons">
+              <del>${{ total }}></del>
+            </p>
+            <p class="mb-2 fw-bold">${{ copons }}</p>
+          </div>
+
+          <hr />
+
+          <h4 class="text-dark my-4">Items in cart</h4>
+          <div
+            class="d-flex align-items-center mb-4"
+            *ngFor="let item of cartPtodact; let i = index"
+          >
+            <div class="me-3 position-relative">
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-secondary"
+              >
+              </span>
+              <img
+                src="{{ item.item.img }}"
+                style="height: 96px; width: 96x"
+                class="img-sm rounded border"
+              />
+            </div>
+
+            <div class="">
+              <a class="nav-link"> {{ item.item.title }} <br /> </a>
+              <div class="price text-muted">
+                Total: ${{ item.item.price * item.quantity }}
+              </div>
+              <button style="border: none" (click)="minsAmount(i)">-</button>
+              <input
+                min="0"
+                (change)="upLocalStorge()"
+                style="
+                  width: 40px;
+                  border: none;
+                  cursor: pointer;
+                  outline: none;
+                  text-align: center;
+                  margin: 0 10px;
+                "
+                [(ngModel)]="item.quantity"
+                class="border text-center"
+              />
+              <button style="border: none" (click)="addAmount(i)">+</button>
+            </div>
+            <i class="fa-solid fa-trash" (click)="deletProduct(i)"></i>
+          </div>
+          @if(copons > 0){
+          <p class="mb-2 fw-bold">Final total ${{ copons }}</p>
+          }@else {
+          <p class="mb-2 fw-bold">Final total ${{ total }}</p>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer -->
+<app-fotter></app-fotter>

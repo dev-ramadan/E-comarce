@@ -1,36 +1,167 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Slide Navbar</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
-	<div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
+  <head>
+    <title>Slide Navbar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="login-register section--lg">
+      <div class="login-register__container container grid">
+        <form class="login" id="sign" action="">
+          <h3 class="section__title">Login</h3>
+          <form action="" class="form grid">
+            <input
+              type="email"
+              placeholder="Your Email"
+              class="form__input"
+              id="email"
+              (change)="validation()"
+            />
+            <span style="display: none; color: red" id="e-empty"
+              >enter your email</span
+            >
+            <span style="display: none; color: red" id="invalid">
+              email must have &#64; and .com</span
+            >
+            <input
+              (change)="passValidation()"
+              type="password"
+              id="password"
+              placeholder="Your Password"
+              class="form__input"
+              formControlName="passwordlog"
+            />
+            <span style="display: none; color: red" id="empty"
+              >enter your password</span
+            >
+            <span style="display: none; color: red" id="min"
+              >password must have 11 and any charts [!,&#64;,#,%,&]
+            </span>
+          </form>
+          <div class="form__btn">
+            <button *ngIf="islogin" class="btn-login" (click)="validations()">
+              Login
+            </button>
+            <button *ngIf="!islogin" class="btn-login" routerLink="/home">
+              Login
+            </button>
+          </div>
+        </form>
+        <form class="register" id="sign">
+          <h3 class="section__title">Create an Account</h3>
+          <p class="text1 text-danger text-center"></p>
+          <form class="form grid" [formGroup]="validatioForm">
+            <div style="position: relative">
+              <input
+                type="text"
+                placeholder="Username"
+                class="form__input w-100"
+                formControlName="userName"
+              />
+              <div
+                *ngIf="
+                  validatioForm.invalid &&
+                  (isFormSubminted ||
+                    validatioForm.get('userName')?.touched ||
+                    validatioForm.get('userName')?.dirty)
+                "
+              >
+                <small
+                  style="position: absolute; bottom: -15px"
+                  *ngIf="validatioForm.get('userName')?.errors?.['required']"
+                  class="text-danger"
+                >
+                  Username is required</small
+                >
+              </div>
+            </div>
+            <div style="position: relative">
+              <input
+                type="email"
+                placeholder="Your Email"
+                class="form__input w-100"
+                formControlName="email"
+              />
+              <div
+                *ngIf="
+                  validatioForm.invalid &&
+                  (isFormSubminted ||
+                    validatioForm.get('email')?.touched ||
+                    validatioForm.get('email')?.dirty)
+                "
+              >
+                <small
+                  style="position: absolute; bottom: -15px"
+                  *ngIf="validatioForm.get('email')?.errors?.['required']"
+                  class="text-danger"
+                >
+                  Email is required</small
+                >
+                <small
+                  *ngIf="validatioForm.get('email')?.errors?.['email']"
+                  class="text-danger"
+                >
+                  Invalid email
+                </small>
+              </div>
+            </div>
+            <div style="position: relative">
+              <input
+                type="password"
+                placeholder="Your Password"
+                class="form__input w-100 pass"
+                formControlName="password"
+              />
+              <div
+                *ngIf="
+                  validatioForm.invalid &&
+                  (isFormSubminted ||
+                    validatioForm.get('password')?.touched ||
+                    validatioForm.get('password')?.dirty)
+                "
+              >
+                <small
+                  style="position: absolute; bottom: -15px"
+                  *ngIf="validatioForm.get('password')?.errors?.['required']"
+                  class="text-danger"
+                >
+                  Password is required</small
+                >
+              </div>
+            </div>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              formControlName="confirmPassword"
+              class="form__input confirm"
+            />
+          </form>
+          <div class="form__btn">
+            @if (validatioForm.invalid) {
+            <button
+              class="btn bg-success text-white mt-3 b"
+              type="submit"
+              id="go"
+              (click)="onSubmint()"
+            >
+              Submit & Register
+            </button>
 
-			<div class="signup">
-				<form id="sign"  action="/home">
-
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text"  placeholder="User name" id="name">
-					<input type="text"  placeholder="Email" id="email">
-					<input type="password" placeholder="Password" id="pass">
-					<button>Sign up</button>
-          <div id="error" class="text-center" style="color: red;"></div>
-				</form>
-			</div>
-
-			<div class="login">
-				<form id="login"  action="/home">
-
-
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="text"  placeholder="Email" id="email1">
-					<input type="password" placeholder="Password" id="pasw">
-					<button>Login</button>
-          <div id="error2" class="text-center" style="color: red;"></div>
-				</form>
-			</div>
-	</div>
-</body>
+            } @if (validatioForm.valid) {
+            <button
+              class="btn bg-success text-white mt-3 b"
+              type="submit"
+              routerLink="/home"
+            >
+              Submit & Register
+            </button>
+            }
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
 </html>

@@ -1,27 +1,41 @@
-    <!-- Start Header  -->
-    <header class="d-flex">
-        <div class="logo">
-            <a href="#"><img src="img/logo.png" alt="This Is Picture Logo"></a>
-        </div>
-        <div class="links ">
-            <ul id="navbar" class="d-flex justify-content-between align-items-center list-unstyled">
-                <li><a routerLink="/home" class="active">Home</a></li>
-                <li><a routerLink="/shop">Shope</a></li>
-                <li><a routerLink="/blog">Blog</a></li>
-                <li><a routerLink="/about">About</a></li>
-                <li><a routerLink="/contact">Contact</a></li>
-                <li><a routerLink="/login">Login</a></li>
+<!-- Start Header  -->
+<header class="d-flex">
+  <div class="logo">
+    <a href="#"><img src="img/dragon.png" alt="This Is Picture Logo" /></a>
+  </div>
+  <div class="links">
+    <ul
+      id="navbar"
+      class="d-flex justify-content-between align-items-center list-unstyled"
+    >
+      <li><a routerLink="/home" class="active" (click)="top()">Home</a></li>
+      <li><a routerLink="/shop" (click)="top()">Shop</a></li>
+      <li><a routerLink="/blog" (click)="top()">Blog</a></li>
+      <li><a routerLink="/about" (click)="top()">About</a></li>
+      <li><a routerLink="/contact" (click)="top()">Contact</a></li>
+      <li><a routerLink="/login" (click)="top()">Login</a></li>
+      <a id="close"><i class="fa-solid fa-xmark"></i></a>
 
-                <li id="lg-bag"><a routerLink="/cart"><i class="fas fa-shopping-bag" style="font-size: 30px; position: relative;">
-                    </i>
-                </a>
-                
-                <span id="close" style="cursor: pointer;"> <i class="fas fa-times" ></i></span>
-            </ul>
-            <div id="mobile">
-                <a routerLink="/cart"><i class="fas fa-shopping-bag" style="position: relative;">
-                </i></a>
-                <i class="fas fa-outdent bar" style="cursor: pointer;" id="bar"></i>
-            </div>
-        </div>
-    </header>
+      <li id="lg-bag">
+        <a routerLink="/cart"
+          ><i
+            class="fas fa-shopping-bag"
+            style="font-size: 30px; position: relative"
+          >
+          </i>
+        </a>
+
+        <span id="close" style="cursor: pointer">
+          <i class="fas fa-times"></i
+        ></span>
+      </li>
+    </ul>
+
+    <div id="mobile">
+      <a routerLink="/cart"
+        ><i class="fas fa-shopping-bag" style="position: relative"> </i
+      ></a>
+      <i class="fas fa-outdent bar" style="cursor: pointer" id="bar"></i>
+    </div>
+  </div>
+</header>

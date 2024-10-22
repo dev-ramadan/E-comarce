@@ -49,7 +49,9 @@
               <button style="border: none" (click)="addAmount(i)">+</button>
             </div>
             <div>TOTAL : {{ item.item.price * item.quantity }}</div>
-            <button class="h" (click)="deletProduct(i)">DELET</button>
+            <button class="h delete" (click)="deletProduct(i)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -70,7 +72,7 @@
       >
         <div class="col">item :</div>
         <div class="col text-left">
-          <h4>{{cartPtodact.length}}</h4>
+          <h4 class="text-light">{{ cartPtodact.length }}</h4>
         </div>
       </div>
       <div
@@ -79,17 +81,16 @@
       >
         <div class="col">TOTAL PRICE</div>
         <div class="col text-right">
-          <h4>${{ total }}</h4>
+          <h4 class="text-light">${{ total }}</h4>
         </div>
       </div>
-      <button class="btn" (click)="chackOut()">CHECKOUT</button>
+      <button class="btn checkout-btn" routerLink="/chackout">CHECKOUT</button>
     </div>
   </div>
 </div>
-@if(chack){
+<!-- @if(chack){
     <div class="alert alert-success text-center " role="alert">your order succsessfuly send</div>
-}
-
+} -->
 
 <!-- <div *ngFor="let item of cartPtodact">
     <img src="{{item.item.img}}" alt="">

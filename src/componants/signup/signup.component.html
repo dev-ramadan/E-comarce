@@ -1,1 +1,50 @@
-<p>signup works!</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Slide Navbar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="login-register section--lg">
+      <div class="login-register__container container grid">
+        <form class="login" id="sign" action="/home">
+          <h3 class="section__title">Login</h3>
+          <form action="" class="form grid">
+            <input type="email" placeholder="Your Email" class="form__input" />
+            <input
+              type="password"
+              placeholder="Your Password"
+              class="form__input"
+            />
+          </form>
+          <div class="form__btn">
+            <button class="btn-login" routerLink="/chackout">Login</button>
+          </div>
+        </form>
+        <form class="register" id="sign" action="/home">
+          <h3 class="section__title">Create an Account</h3>
+          <form action="" class="form grid">
+            <input type="text" placeholder="Username" class="form__input" />
+            <input type="email" placeholder="Your Email" class="form__input" />
+            <input
+              type="password"
+              placeholder="Your Password"
+              class="form__input"
+            />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              class="form__input"
+            />
+          </form>
+          <div class="form__btn">
+            <button class="btn-login" routerLink="/chackout">Submit & Register</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
