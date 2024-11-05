@@ -8,7 +8,7 @@ export class ProdactService {
   constructor(private http: HttpClient) {}
 
   getAllProducts(): Observable<any[]> {
-    return this.http.get<any[]>('https://run.mocky.io/v3/164f6b77-a815-4146-b3d4-fbf3289aa8b0');
+    return this.http.get<any[]>('https://run.mocky.io/v3/d7de61f6-3bb5-4448-907b-2e48c7d6d73a');
   }
   getProductsById(id: any) {
     return this.http.get('https://run.mocky.io/v3/' + id);
